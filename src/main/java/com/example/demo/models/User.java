@@ -1,16 +1,14 @@
-package com.example.demo;
+package com.example.demo.models;
 
+import com.example.demo.models.AuditModel;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
 @Data
 @Entity
-public class User extends AuditModel{
+public class User extends AuditModel {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;

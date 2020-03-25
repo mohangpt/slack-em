@@ -1,5 +1,9 @@
-package com.example.demo;
+package com.example.demo.controllers;
 
+import com.example.demo.models.Task;
+import com.example.demo.models.TaskRepository;
+import com.example.demo.models.User;
+import com.example.demo.models.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +19,8 @@ public class TaskController {
     private UserRepository userRepository;
 
     @PostMapping
-    public @ResponseBody Task add(@RequestParam Integer userId, @RequestParam String description) throws Exception {
+    public @ResponseBody
+    Task add(@RequestParam Integer userId, @RequestParam String description) throws Exception {
         Optional<User> byId = userRepository.findById(userId);
         if(!byId.isPresent()) {
             throw new Exception("No such user exists!");
